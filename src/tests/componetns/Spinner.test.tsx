@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import { render } from '@testing-library/react';
-import { Spinner } from '../../components/Spinner';
+import { Spinner } from '../../shared/ui/Spinner';
 import { describe, expect, it } from 'vitest';
 
 describe('Spinner', () => {

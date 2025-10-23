@@ -10,8 +10,8 @@ import {
 } from '../../store/offer-thunks';
 
 import { clearFavorites } from '../../store/action';
-import type { Offer } from '../../types/offer';
-import type { Review } from '../../types/review';
+import type { Offer } from '../../entities/offer/interface';
+import type { Review } from '../../entities/review/interface';
 
 const makeOffer = (id: string, isFavorite = false): Offer => ({
     id,
@@ -76,7 +76,7 @@ describe('offerSlice reducer', () => {
         expect(next.currentOffer).toBeNull();
     });
 
-    it ('should handle fetchOffer.fulfilled (set currentOffer and stop loading)', () => {
+    it('should handle fetchOffer.fulfilled (set currentOffer and stop loading)', () => {
         const payload = makeOffer('42');
         const prev = { ...initialState, isOfferLoading: true };
         const next = offersReducer(prev, fetchOffer.fulfilled(payload, '', '42'));
@@ -116,7 +116,7 @@ describe('offerSlice reducer', () => {
         const i1 = makeOffer('1', false);
         const i2 = makeOffer('2', false);
         const prev = { ...initialState, items: [i1, i2] };
-        
+
         const favoritesPayload = [makeOffer('2', true)];
         const next = offersReducer(prev, fetchFavorites.fulfilled(favoritesPayload, '', undefined));
 

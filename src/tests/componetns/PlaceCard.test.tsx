@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/vitest'
 import { describe, expect, it, vi } from "vitest"
 import { render, screen } from '@testing-library/react';
-import { FavoritesList } from "../../components/FavoritesList";
-import type { Offer } from '../../types/offer';
+import { OffersFavoritesList } from "../../widgets/offers/favorites/OffersFavoritesList";
+import type { Offer } from '../../entities/offer/interface';
 import { NearbyOffersList } from '../../components/NearbyOffersList';
 
 vi.mock('../../components/PlaceCard', () => ({
@@ -16,7 +16,7 @@ describe('FavoriteList', () => {
             { id: '2', title: 'Fav 2' },
         ] as Offer[];
 
-        render(<FavoritesList offers={offers} />);
+        render(<OffersFavoritesList offers={offers} />);
 
         const cards = screen.getAllByTestId('place-card');
         expect(cards).toHaveLength(2);

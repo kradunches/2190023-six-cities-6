@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import authReducer, { setAuthorizationStatus, AuthorizationStatus } from '../../store/auth-slice';
+import authReducer, { setAuthorizationStatus, AuthorizationStatus } from '../../entities/auth/model/slice';
 
 describe('authSlice reducer', () => {
   it('should return initial state', () => {

@@ -1,0 +1,1 @@
+export const selectAuthorizationStatus = (state: RootState) => state.auth.authorizationStatus;
